@@ -1,6 +1,7 @@
 <template>
   <div class="page-index">
     <div class="container">
+      <h1 class="mt-4">Planer osobisty</h1>
       <BlogSection :blogs="blogs"/>
     </div>
   </div>
