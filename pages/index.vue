@@ -1,7 +1,33 @@
 <template>
   <div class="page-index">
+<!--    <div class="section" style="transform-origin: center top; transform: scaleY(1);">-->
+<!--      <div class="image-parallax" style="position: sticky; top: 0; width: 100vw; z-index: -2;">-->
+<!--        <img src="~assets/images/par.jpeg" style="width: 100%;" />-->
+
+<!--      </div>-->
+<!--      <div class="content-parallax" style="position: relative; margin: -50vh auto 0; color: white; height: 500px;">-->
+<!--        <h1>Zwycięscy i przegrani mają te same cele</h1>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="main" style="">
+      <div>
+        <div style="text-align: center;">
+          <h1>Hello</h1>
+        </div>
+      </div>
+      <div>
+
+      </div>
+    </div>
     <div class="container">
-      <h1 class="mt-4">Planer osobisty</h1>
+<!--      <div class="logo" style="display: grid; grid-template-columns: 30% auto 30%; margin-top: 50px;">-->
+<!--        <div style="grid-column-start: 2; margin-bottom: 50px;">-->
+<!--          <image-responsive-->
+<!--              imageURL="logo1500x1500.png"-->
+<!--              alt="performance" />-->
+<!--        </div>-->
+<!--      </div>-->
       <BlogSection :blogs="blogs"/>
     </div>
   </div>
@@ -10,16 +36,13 @@
 <script>
   import BlogSection from "~/components/Sections/BlogSection"
 
-  import blogsEn from '~/contents/en/blogsEn.js'
-  import blogsEs from '~/contents/es/blogsEs.js'
+  import blogs from '~/contents/blogsEn.js'
 
   export default {
-    async asyncData ({app}) {
+    async asyncData () {
 
-      const blogs = app.i18n.locale === 'en' ? blogsEn : blogsEs
-      
       async function asyncImport (blogName) {
-        const wholeMD = await import(`~/contents/${app.i18n.locale}/blog/${blogName}.md`)
+        const wholeMD = await import(`~/contents/blog/${blogName}.md`)
         return wholeMD.attributes
       }
 
@@ -39,26 +62,46 @@
 
     head () {
       return {
-        title: this.$t('indexPageHead.title'),
+        title: this.title,
         htmlAttrs: {
-          lang: this.$i18n.locale,
+          lang: "pl",
         },
         script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
         meta: [
-          { name: "author", content: "Marina Aisa" },
-          { name: "description", property: "og:description", content: this.$t('indexPageHead.description'), hid: "description" },
-          { property: "og:title", content: this.$t('indexPageHead.title') },
+          { name: "author", content: "Stanisław Stępak" },
+          { name: "description", property: "og:description", content: "TODO: Dodać meta-description", hid: "description" },
+          { property: "og:title", content: this.title },
           { property: "og:image", content: this.ogImage },
-          { name: "twitter:description", content: this.$t('indexPageHead.description') },
+          { name: "twitter:description", content: this.title },
           { name: "twitter:image", content: this.ogImage }
         ]
       };
     },
 
     computed: {
+      title() {
+        return "Planer Osobisty"
+      },
       ogImage: function () {
         return;
+      },
+      bgImageUrl() {
+        return require('~/assets/images/par.jpeg');
       }
     }
   }
 </script>
+
+<style>
+.main {
+  background-image: url('~assets/images/par.jpeg');
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  padding-top: 30vh;
+}
+.main h1 {
+  color: white;
+  font-size: 100px;
+}
+</style>

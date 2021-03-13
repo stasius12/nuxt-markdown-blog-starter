@@ -1,6 +1,5 @@
 const builtAt = new Date().toISOString()
 const path = require('path')
-const { I18N } = require('./locales/i18n-nuxt-config')
 import fs from 'fs'
 import Mode from "frontmatter-markdown-loader/mode"
 import MarkdownIt from 'markdown-it'
@@ -46,6 +45,7 @@ module.exports = {
       { property: 'og:updated_time', content: builtAt }
     ],
     link: [
+      { rel: 'stylesheet', href: 'http://fonts.cdnfonts.com/css/libra-serif-modern' },
       { rel: 'icon', type: 'image/png', href: '/favicons/favicon-16x16.png', sizes: '16x16' },
       { rel: 'icon', type: 'image/png', href: '/favicons/favicon-32x32.png', sizes: '32x32' },
       { rel: 'icon', type: 'image/png', href: '/favicons/android-chrome-96x96.png', sizes: '96x96' },
@@ -115,10 +115,13 @@ module.exports = {
       });
     }
   },
-  plugins: ['~/plugins/lazyload', '~/plugins/globalComponents', { src: '~plugins/ga.js', ssr: false }],
+  plugins: [
+      '~/plugins/lazyload',
+      '~/plugins/globalComponents',
+      { src: '~plugins/ga.js', ssr: false },
+  ],
   modules: [  
     '@nuxtjs/style-resources',
-    ['nuxt-i18n', I18N],
     'nuxt-webfontloader'
   ],
 
@@ -138,11 +141,12 @@ module.exports = {
     }
   },
 
-  generate: {
-    routes: [
-      '/es', '404'
-    ]
-    .concat(getPaths('es', 'blog'))
-    .concat(getPaths('en', 'blog'))
-  }
+  // generate: {
+  //   routes: [
+  //     '404'
+  //   ]
+  // }
+  // //   .concat(getPaths('es', 'blog'))
+  //   .concat(getPaths('en', 'blog'))
+  // // }
 }

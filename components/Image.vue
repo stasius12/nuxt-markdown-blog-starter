@@ -32,9 +32,6 @@ export default {
     classes: {
       type: String
     },
-    alt: {
-      type: String
-    },
     rounded: {
       type: Boolean,
       default: false

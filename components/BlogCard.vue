@@ -1,7 +1,7 @@
 <template>
   <li class="blog">
     <nuxt-link 
-      :to="localePath({ name: 'blog-slug', params: { slug: blog.name }})"
+      :to="{ name: 'blog-slug', params: { slug: blog.name }}"
     >
       <ImageResponsive
         :imageURL="`blog/${blog.id}/_thumbnail.jpg`"
@@ -54,7 +54,7 @@
     }
 
     &__title {
-      font-family: 'Tiempos Headline', Arial, sans-serif;
+      font-family: 'Libra Serif Modern', Arial, sans-serif;
       color: $secondary;
       padding-top: 1rem;
       font-size: 2.5rem;

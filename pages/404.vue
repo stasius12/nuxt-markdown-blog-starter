@@ -1,5 +1,5 @@
 <template>
   <div class="container">
-    Se ha producido un error
+    Błąd, przepraszamy :/
   </div>
 </template>

@@ -1,7 +1,7 @@
 ---
 name: 'design-and-code-skeletons-screens'
 trans: 'disena-programa-skeletons-screens'
-title: Design and code responsive Skeleton Screens
+title: 10 sposobów na lepsze życie
 year: 1 May 2019
 color: '#edece7'
 isTextColorDark: true

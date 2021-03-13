@@ -1,6 +1,6 @@
 ---
 name: 'blog-using-vue-nuxt-markdown'
-title: Website with blog and portfolio using Vue.js + Nuxt + Markdown
+title: Jak wyznaczyć swoje CELE?
 year: 1 January 2019
 color: '#8e7964'
 trans: 'blog-usando-vue-nuxt-markdown'

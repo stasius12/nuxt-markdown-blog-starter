@@ -10,10 +10,10 @@ publish_mode: editorial_workflow
 collections:
   - name: 'blog'
     label: 'Blog'
-    folder: 'contents/en/blog'
+    folder: 'contents/blog'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     editor:
       preview: true
     fields:
