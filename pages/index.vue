@@ -36,22 +36,24 @@
 <script>
   import BlogSection from "~/components/Sections/BlogSection"
 
-  import blogs from '~/contents/blogsEn.js'
-
   export default {
-    async asyncData () {
-
-      async function asyncImport (blogName) {
-        const wholeMD = await import(`~/contents/blog/${blogName}.md`)
-        return wholeMD.attributes
+    async asyncData ({ $content }) {
+      const blogs = await $content('blog').fetch();
+      return {
+        blogs
       }
 
-      return Promise.all(blogs.map(blog => asyncImport(blog)))
-      .then((res) => {
-        return {
-          blogs: res
-        }
-      })
+      // async function asyncImport (blogName) {
+      //   const wholeMD = await import(`~/contents/blog/${blogName}.md`)
+      //   return wholeMD.attributes
+      // }
+      //
+      // return Promise.all(blogs.map(blog => asyncImport(blog)))
+      // .then((res) => {
+      //   return {
+      //     blogs: res
+      //   }
+      // })
     },
     
     components: { BlogSection },

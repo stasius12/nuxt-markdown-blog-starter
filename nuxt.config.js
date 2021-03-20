@@ -120,7 +120,8 @@ module.exports = {
       '~/plugins/globalComponents',
       { src: '~plugins/ga.js', ssr: false },
   ],
-  modules: [  
+  modules: [
+    '@nuxt/content',
     '@nuxtjs/style-resources',
     'nuxt-webfontloader'
   ],
@@ -140,6 +141,10 @@ module.exports = {
       urls: ['/fonts/fonts.css']
     }
   },
+
+  content: {
+    dir: 'contents'
+  }
 
   // generate: {
   //   routes: [
